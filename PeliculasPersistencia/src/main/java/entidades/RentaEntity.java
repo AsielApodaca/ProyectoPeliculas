@@ -25,6 +25,23 @@ public class RentaEntity {
     }
 
     /**
+     * Crea una nueva instancia sin id de RentaEntity con valores específicos para sus atributos.
+     * 
+     * @param usuarioID el identificador del usuario que realizó la renta
+     * @param pelicuID el identificador de la película rentada
+     * @param fechaRenta la fecha en que se realizó la renta
+     * @param fechaDevolucion la fecha en que se devolvió la película
+     * @param estadoRenta el estado actual de la renta
+     */
+    public RentaEntity(ObjectId usuarioID, ObjectId pelicuID, Date fechaRenta, Date fechaDevolucion, String estadoRenta) {
+        this.usuarioID = usuarioID;
+        this.pelicuID = pelicuID;
+        this.fechaRenta = fechaRenta;
+        this.fechaDevolucion = fechaDevolucion;
+        this.estadoRenta = estadoRenta;
+    }
+
+    /**
      * Crea una nueva instancia de RentaEntity con valores específicos para sus atributos.
      * 
      * @param _id el identificador único de la renta

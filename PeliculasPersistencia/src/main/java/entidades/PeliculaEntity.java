@@ -28,6 +28,27 @@ public class PeliculaEntity {
     }
 
     /**
+     * Crea una nueva instancia sin id de PeliculaEntity con valores específicos para sus atributos.
+     * 
+     * @param titulo el título de la película
+     * @param director el director de la película
+     * @param compania la compañía productora de la película
+     * @param estreno la fecha de estreno de la película
+     * @param categorias la lista de categorías de la película
+     * @param calificacion la calificación de la película
+     * @param reparto la información sobre el reparto de la película
+     */
+    public PeliculaEntity(String titulo, String director, String compania, Date estreno, List<String> categorias, Integer calificacion, RepartoEntity reparto) {
+        this.titulo = titulo;
+        this.director = director;
+        this.compania = compania;
+        this.estreno = estreno;
+        this.categorias = categorias;
+        this.calificacion = calificacion;
+        this.reparto = reparto;
+    }
+    
+    /**
      * Crea una nueva instancia de PeliculaEntity con valores específicos para sus atributos.
      * 
      * @param _id el identificador único de la película

@@ -22,6 +22,19 @@ public class UsuarioEntity {
      */
     public UsuarioEntity() {
     }
+
+    /**
+     * Crea una nueva instancia sin id de UsuarioEntity con valores específicos para sus atributos.
+     * 
+     * @param nombre el nombre del usuario
+     * @param email el correo electrónico del usuario
+     * @param fechaRegistro la fecha de registro del usuario
+     */
+    public UsuarioEntity(String nombre, String email, Date fechaRegistro) {
+        this.nombre = nombre;
+        this.email = email;
+        this.fechaRegistro = fechaRegistro;
+    }
     
     /**
      * Crea una nueva instancia de UsuarioEntity con valores específicos para sus atributos.
