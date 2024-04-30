@@ -5,6 +5,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import entidades.RentaEntity;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
@@ -22,16 +23,16 @@ public class ConexionMongo {
     // Cadena de conexión a la instancia de MongoDB
     private static final String cadenaConexion = "mongodb://localhost:27017";
     // Nombre de la base de datos
-    private static final String nombreBd = "Escuela";
+    private static final String nombreBd = "PeliculasRenta";
     // Nombre de la colección
-    private static final String nombreCol = "Reportes";
+    private static final String nombreCol = "Rentas";
     
     // Cliente de MongoDB
     private static MongoClient mongoClient;
     // Base de datos MongoDB
     private static MongoDatabase baseDeDatos;
     // Colección MongoDB para películas
-    private static MongoCollection<Clase> coleccion;
+    //private static MongoCollection<RentaEntity> coleccion;
     
     /**
      * Abre una conexión a la base de datos MongoDB y obtiene la colección de películas.
@@ -43,19 +44,19 @@ public class ConexionMongo {
         
         mongoClient = MongoClients.create(configuracion);
         baseDeDatos = mongoClient.getDatabase(nombreBd);
-        coleccion = baseDeDatos.getCollection(nombreCol, Clase.class);
+        //coleccion = baseDeDatos.getCollection(nombreCol, RentaEntity.class);
     }
     
     /**
-     * Obtiene la colección de películas. Si la conexión no está abierta, la abre antes de obtener la colección.
+     * Obtiene la base de datos. Si la conexión no está abierta, la abre antes de obtener la base de datos.
      * 
-     * @return La colección de películas.
+     * @return La base de datos.
      */
-    public static MongoCollection<Clase> obtenerColeccion() {
-        if(coleccion == null) {
+    public static MongoDatabase obtenerBaseDeDatos() {
+        if(baseDeDatos == null) {
             abrirConexion();
         }
-        return coleccion;
+        return baseDeDatos;
     }
     
     /**
