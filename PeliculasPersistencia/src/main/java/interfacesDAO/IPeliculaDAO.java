@@ -20,7 +20,7 @@ public interface IPeliculaDAO {
      * @return la película creada
      * @throws PersistenciaException si ocurre un error durante la creación de la película
      */
-    public PeliculaEntity crearRenta(PeliculaEntity pe) throws PersistenciaException;
+    public PeliculaEntity crearPelicula(PeliculaEntity pe) throws PersistenciaException;
 
     /**
      * Obtiene una película del sistema según un criterio especificado.
@@ -29,7 +29,7 @@ public interface IPeliculaDAO {
      * @return la película obtenida
      * @throws PersistenciaException si ocurre un error durante la obtención de la película
      */
-    public PeliculaEntity obtenerRenta(PeliculaEntity pe) throws PersistenciaException;
+    public PeliculaEntity obtenerPelicula(PeliculaEntity pe) throws PersistenciaException;
 
     /**
      * Modifica una película existente en el sistema.
@@ -38,7 +38,7 @@ public interface IPeliculaDAO {
      * @return true si la película fue modificada exitosamente, false en caso contrario
      * @throws PersistenciaException si ocurre un error durante la modificación de la película
      */
-    public boolean modificarRenta(PeliculaEntity pe) throws PersistenciaException;
+    public boolean modificarPelicula(PeliculaEntity pe) throws PersistenciaException;
 
     /**
      * Elimina una película del sistema.
@@ -47,5 +47,5 @@ public interface IPeliculaDAO {
      * @return true si la película fue eliminada exitosamente, false en caso contrario
      * @throws PersistenciaException si ocurre un error durante la eliminación de la película
      */
-    public boolean eliminarRenta(PeliculaEntity pe) throws PersistenciaException;
+    public boolean eliminarPelicula(PeliculaEntity pe) throws PersistenciaException;
 }
