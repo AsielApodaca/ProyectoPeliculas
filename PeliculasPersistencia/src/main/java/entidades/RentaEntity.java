@@ -17,6 +17,7 @@ public class RentaEntity {
     private Date fechaRenta; // Fecha en que se realizó la renta
     private Date fechaDevolucion; // Fecha en que se devolvió la película
     private String estadoRenta; // Estado actual de la renta (por ejemplo, "activa" o "devuelta")
+    private Float precio; // Precio final a pagar por la renta
 
     /**
      * Crea una nueva instancia de RentaEntity sin inicializar sus atributos.
@@ -32,13 +33,15 @@ public class RentaEntity {
      * @param fechaRenta la fecha en que se realizó la renta
      * @param fechaDevolucion la fecha en que se devolvió la película
      * @param estadoRenta el estado actual de la renta
+     * @param precio el precio final a pagar por la renta
      */
-    public RentaEntity(ObjectId usuarioID, ObjectId pelicuID, Date fechaRenta, Date fechaDevolucion, String estadoRenta) {
+    public RentaEntity(ObjectId usuarioID, ObjectId pelicuID, Date fechaRenta, Date fechaDevolucion, String estadoRenta, Float precio) {
         this.usuarioID = usuarioID;
         this.pelicuID = pelicuID;
         this.fechaRenta = fechaRenta;
         this.fechaDevolucion = fechaDevolucion;
         this.estadoRenta = estadoRenta;
+        this.precio = precio;
     }
 
     /**
@@ -50,14 +53,16 @@ public class RentaEntity {
      * @param fechaRenta la fecha en que se realizó la renta
      * @param fechaDevolucion la fecha en que se devolvió la película
      * @param estadoRenta el estado actual de la renta
+     * @param precio el precio final a pagar por la renta
      */
-    public RentaEntity(ObjectId _id, ObjectId usuarioID, ObjectId pelicuID, Date fechaRenta, Date fechaDevolucion, String estadoRenta) {
+    public RentaEntity(ObjectId _id, ObjectId usuarioID, ObjectId pelicuID, Date fechaRenta, Date fechaDevolucion, String estadoRenta, Float precio) {
         this._id = _id;
         this.usuarioID = usuarioID;
         this.pelicuID = pelicuID;
         this.fechaRenta = fechaRenta;
         this.fechaDevolucion = fechaDevolucion;
         this.estadoRenta = estadoRenta;
+        this.precio = precio;
     }
 
     /**
@@ -166,5 +171,24 @@ public class RentaEntity {
      */
     public void setEstadoRenta(String estadoRenta) {
         this.estadoRenta = estadoRenta;
+    }
+
+    
+    /**
+     * Obtiene el precio final de la renta.
+     * 
+     * @return el precio final de la renta
+     */
+    public Float getPrecio() {
+        return precio;
+    }
+
+    /**
+     * Establece el precio final de la renta.
+     * 
+     * @param precio el precio final de la renta
+     */
+    public void setPrecio(Float precio) {
+        this.precio = precio;
     }
 }
