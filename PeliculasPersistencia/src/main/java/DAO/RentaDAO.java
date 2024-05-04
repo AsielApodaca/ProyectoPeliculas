@@ -2,11 +2,16 @@ package DAO;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import entidades.PeliculaEntity;
 import entidades.RentaEntity;
+import entidades.UsuarioEntity;
 import excepciones.PersistenciaException;
 import interfacesDAO.IRentaDAO;
+import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.bson.Document;
 
 /**
  *
@@ -24,7 +29,7 @@ public class RentaDAO implements IRentaDAO{
     }
 
     @Override
-    public RentaEntity crearRenta(RentaEntity re) throws PersistenciaException {
+    public RentaEntity crear(RentaEntity re) throws PersistenciaException {
         try {
             if(re == null) throw new PersistenciaException("La entidad de renta del parámetro es nulo");
             coleccion.insertOne(re);
@@ -38,7 +43,7 @@ public class RentaDAO implements IRentaDAO{
     }
 
     @Override
-    public RentaEntity obtenerRenta(RentaEntity re) throws PersistenciaException {
+    public RentaEntity obtener(RentaEntity re) throws PersistenciaException {
         try {
             if(re == null) throw new PersistenciaException("La entidad de renta del parámetro es nulo.");
             if(re.getId() != null) return coleccion.find(Filters.eq("_id", re.getId())).first();
@@ -52,7 +57,7 @@ public class RentaDAO implements IRentaDAO{
     }
 
     @Override
-    public boolean modificarRenta(RentaEntity re) throws PersistenciaException {
+    public boolean modificar(RentaEntity re) throws PersistenciaException {
         try {
             
             if(re == null) throw new PersistenciaException("La entidad de renta del parámetro es nulo.");
@@ -68,7 +73,7 @@ public class RentaDAO implements IRentaDAO{
     }
 
     @Override
-    public boolean eliminarRenta(RentaEntity re) throws PersistenciaException {
+    public boolean eliminar(RentaEntity re) throws PersistenciaException {
         try {
             if(re == null) throw new PersistenciaException("La entidad de renta del parámetro es nulo.");
             if(re.getId() == null) throw new PersistenciaException("El atributo id de la entidad renta del parámetro es nulo.");
@@ -80,6 +85,46 @@ public class RentaDAO implements IRentaDAO{
         } finally {
             return false;
         }
+    }
+
+    @Override
+    public List<RentaEntity> obtenerPorFecha(Date fecha) throws PersistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public RentaEntity obtenerUltimaRentaPorUsuario(UsuarioEntity ue) throws PersistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public RentaEntity obtenerPeliculaMasRentada() throws PersistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<UsuarioEntity> obtenerUsuariosPorPelicula(PeliculaEntity pe) throws PersistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public double calcularIngresosPorPelicula(PeliculaEntity pe) throws PersistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<RentaEntity> obtenerPorUsuarioYRangoFechas(UsuarioEntity ue, Date desde, Date hasta) throws PersistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Document obtenerRentasPorDia() throws PersistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Document obtenerUsuariosMasActivos() throws PersistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

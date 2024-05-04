@@ -24,7 +24,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
 
     @Override
-    public UsuarioEntity crearUsuario(UsuarioEntity ue) throws PersistenciaException {
+    public UsuarioEntity crear(UsuarioEntity ue) throws PersistenciaException {
         try {
             if(ue == null) throw new PersistenciaException("La entidad de usuario del parámetro es nulo");
             coleccion.insertOne(ue);
@@ -38,7 +38,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
 
     @Override
-    public UsuarioEntity obtenerUsuario(UsuarioEntity ue) throws PersistenciaException {
+    public UsuarioEntity obtener(UsuarioEntity ue) throws PersistenciaException {
         try {
             if(ue == null) throw new PersistenciaException("La entidad de usuario del parámetro es nulo.");
             if(ue.getId() != null) return coleccion.find(Filters.eq("_id", ue.getId())).first();
@@ -53,7 +53,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
 
     @Override
-    public boolean modificarUsuario(UsuarioEntity ue) throws PersistenciaException {
+    public boolean modificar(UsuarioEntity ue) throws PersistenciaException {
         try {
             
             if(ue == null) throw new PersistenciaException("La entidad de usuario del parámetro es nulo.");
@@ -69,7 +69,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
 
     @Override
-    public boolean eliminarUsuario(UsuarioEntity ue) throws PersistenciaException {
+    public boolean eliminar(UsuarioEntity ue) throws PersistenciaException {
         try {
             if(ue == null) throw new PersistenciaException("La entidad de usuario del parámetro es nulo.");
             if(ue.getId() == null) throw new PersistenciaException("El atributo id de la entidad usuario del parámetro es nulo.");
