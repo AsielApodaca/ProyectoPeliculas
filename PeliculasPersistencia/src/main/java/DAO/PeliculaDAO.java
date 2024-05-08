@@ -5,6 +5,7 @@ import com.mongodb.client.model.Filters;
 import entidades.PeliculaEntity;
 import excepciones.PersistenciaException;
 import interfacesDAO.IPeliculaDAO;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -85,12 +86,14 @@ public class PeliculaDAO implements IPeliculaDAO{
 
     @Override
     public List<PeliculaEntity> obtenerConCalificacionMayorA(Integer calificacion) throws PersistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<PeliculaEntity> obtenerNoRentadas() throws PersistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            return coleccion.find(Filters.gt("calificacion", calificacion)).into(new ArrayList<>());
+        } catch (Exception e) {
+            LOG.log(Level.SEVERE, "Hubo un error en la capa de persistencia al buscar películas con calificación mayor a " + calificacion);
+            throw new PersistenciaException(e.getMessage());
+        } finally {
+            return null;
+        }
     }
 
 }

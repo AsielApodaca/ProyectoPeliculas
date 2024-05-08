@@ -124,4 +124,12 @@ public interface IRentaDAO {
      * @throws PersistenciaException si ocurre un error durante la obtención de los usuarios
      */
     public Document obtenerUsuariosMasActivos() throws PersistenciaException;
+    
+    /**
+     * Obtiene una lista de películas que no han sido rentadas.
+     * 
+     * @return una lista de películas no rentadas
+     * @throws PersistenciaException si ocurre un error durante la obtención de las películas
+     */
+    public List<PeliculaEntity> obtenerNoRentadas() throws PersistenciaException;
 }

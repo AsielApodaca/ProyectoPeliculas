@@ -5,6 +5,6 @@ package entidades;
  * @author Asiel Apodaca Monge
  */
 public class estadoRenta {
-    public final String RENTADO = "RENTADO";
-    public final String DEVUELTO = "DEVUELTO";
+    public static final String RENTADO = "RENTADO";
+    public static final String DEVUELTO = "DEVUELTO";
 }

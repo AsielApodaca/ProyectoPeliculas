@@ -59,11 +59,4 @@ public interface IPeliculaDAO {
      */
     public List<PeliculaEntity> obtenerConCalificacionMayorA(Integer calificacion) throws PersistenciaException;
     
-    /**
-     * Obtiene una lista de películas que no han sido rentadas.
-     * 
-     * @return una lista de películas no rentadas
-     * @throws PersistenciaException si ocurre un error durante la obtención de las películas
-     */
-    public List<PeliculaEntity> obtenerNoRentadas() throws PersistenciaException;
 }

@@ -19,9 +19,32 @@ public class PruebaUsuarioDAO {
     public static void main(String[] args) {
         UsuarioDAO u = new UsuarioDAO();
         
+        // Mi rata de pruebas :)
         UsuarioEntity usuario = new UsuarioEntity("JUAN", "potro@potro.com", new Date());
+        
+        
+        // crearUsuario
         try {
-            u.crearUsuario(usuario);
+           usuario = u.crear(usuario);
+           if(usuario != null) {
+               System.out.println("El usuario se insertó en la base de datos:");
+               System.out.println("ID: " + usuario.getId());
+               System.out.println();
+           }
+        } catch (PersistenciaException ex) {
+            Logger.getLogger(PruebaUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // obtenerUsuario
+        try {
+            UsuarioEntity usuarioBuscado = new UsuarioEntity();
+            usuarioBuscado.setId(usuario.getId());
+            usuarioBuscado = u.obtener(usuarioBuscado);
+            if(usuarioBuscado != null) {
+               System.out.println("Se encontró un usuario:");
+               System.out.println("Nombre: " + usuarioBuscado.getNombre());
+               System.out.println();
+           }
         } catch (PersistenciaException ex) {
             Logger.getLogger(PruebaUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
